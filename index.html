@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Inventory Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Inventory Tracker</h1>
       <div id="signInDiv">
         <!-- sign up form -->
         <form id="sign-up">
@@ -32,7 +32,6 @@
             <input type="password" name="credentials[password]" placeholder="Password" class="forms">
             <input type="submit" value="Sign In" class="buttons">
           </fieldset>
-          <p class="authMessage"></p>
         </form>
       </div>
       <div id="signOutDiv">
@@ -45,12 +44,12 @@
             <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
             <input type="submit" value="Change password" class="buttons">
           </fieldset>
-          <p class="authMessage"></p>
         </form>
         <!-- sign out button-->
         <form>
           <button type="button" id="sign-out" class="buttons">Sign Out</button>
         </form>
+        <div id="authMessage">
       </div>
 
     </body>
