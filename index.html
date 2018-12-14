@@ -13,5 +13,45 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+      <div id="signInDiv">
+        <!-- sign up form -->
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+            <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
+            <input type="submit" value="Sign Up" class="buttons">
+          </fieldset>
+        </form>
+        <!-- sign in form -->
+        <form id="sign-in">
+          <fieldset>
+            <legend>Sign In</legend>
+            <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+            <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+            <input type="submit" value="Sign In" class="buttons">
+          </fieldset>
+          <p class="authMessage"></p>
+        </form>
+      </div>
+      <div id="signOutDiv">
+        <!-- change password form -->
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old password" class="forms">
+            <input type="password" name="passwords[new]" placeholder="New password" class="forms">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
+            <input type="submit" value="Change password" class="buttons">
+          </fieldset>
+          <p class="authMessage"></p>
+        </form>
+        <!-- sign out button-->
+        <form>
+          <button type="button" id="sign-out" class="buttons">Sign Out</button>
+        </form>
+      </div>
+
     </body>
 </html>
