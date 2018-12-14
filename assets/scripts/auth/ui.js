@@ -6,9 +6,8 @@ const signUpSuccess = data => {
   $('#authMessage').text('Signed up successfully. Sign in below!')
   $('#authMessage').removeClass()
   $('#authMessage').addClass('success')
-  $('#sign-up').hide()
-  $('#password').val('')
-  $('#email').val('')
+  // $('#sign-up').hide()
+  $('.forms').val('')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -16,9 +15,7 @@ const signUpFailure = data => {
   $('#authMessage').text('Signed up failed....try again')
   $('#authMessage').removeClass()
   $('#authMessage').addClass('success')
-  $('#sign-up').hide()
-  $('#password').val('')
-  $('#email').val('')
+  $('.forms').val('')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -31,8 +28,7 @@ const signInSuccess = data => {
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
-  $('#password').val('')
-  $('#email').val('')
+  $('.forms').val('')
   // $('#scheme-create').show()
   // /$('#schemes-update').show()
   // $('#scheme-delete').show()
@@ -45,8 +41,7 @@ const signInFailure = error => {
   $('#authmessage').text('Error on sign in')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('failure')
-  $('#password').val('')
-  $('#email').val('')
+  $('.forms').val('')
   console.error('signInFailure ran. Error is :', error)
 }
 
@@ -54,8 +49,7 @@ const changePasswordSuccess = data => {
   $('#authmessage').text('Password changed successfully')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('success')
-  $('#oldpassword').val('')
-  $('#newpassword').val('')
+  $('.forms').val('')
   console.log('changePasswordSuccess ran. Data is :', data)
 }
 
@@ -63,8 +57,7 @@ const changePasswordFailure = error => {
   $('#authmessage').text('Error on password change')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('failure')
-  $('#oldpassword').val('')
-  $('#newpassword').val('')
+  $('.forms').val('')
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
@@ -75,13 +68,8 @@ const signOutSuccess = data => {
   $('#authmessage').addClass('success')
   console.log('signOutSuccess ran. Data is :', data)
   $('#sign-out').hide()
-  $('#scheme-create').hide()
-  $('#schemes-update').hide()
-  $('#scheme-delete').hide()
-  $('#submitmessage').hide()
   $('#change-password').hide()
   // $('#onescheme').hide()
-  $('#deletemessage').hide()
   $('#sign-in').show()
   $('#sign-up').show()
   //    .catch()
