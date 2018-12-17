@@ -12,7 +12,9 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+
       <h1>Inventory Tracker</h1>
+
       <div id="signInDiv">
         <!-- sign up form -->
         <form id="sign-up">
@@ -34,6 +36,7 @@
           </fieldset>
         </form>
       </div>
+
       <div id="signOutDiv">
         <!-- change password form -->
         <form id="change-password">
@@ -52,6 +55,20 @@
         <div id="authMessage">
         </div>
       </div>
+
+      <div id="showInventoryDiv">
+          <!-- see 1 inventory item -->
+          <form id="show-inventory-item">
+            <h4>See an Inventory Item</h4>
+            <input type="text" name="id" placeholder="Inventory Id" id="show-id" class="forms">
+            <input type="submit" value="Go" class="buttons">
+          </form>
+          <!-- see all inventory items -->
+          <form id="index-inventory">
+            <h4>See all Inventory Items</h4>
+            <input type="submit" value="Show All Inventory" class="buttons">
+          </form>
+        </div>
 
     </body>
 </html>
