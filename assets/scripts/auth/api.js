@@ -40,6 +40,17 @@ const signOut = () => {
   })
 }
 
+const createItem = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/items/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
 //  createGame,
   signUp,
