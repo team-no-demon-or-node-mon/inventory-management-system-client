@@ -1,16 +1,16 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
-const store = require('../../store.js')
+const store = require('../store.js')
 
-const onShowInventoryItem = (event) => {
+const onShowInventoryItem = event => {
   event.preventDefault()
   api.showInventoryItem()
     .then(ui.onShowSuccess)
     .catch(ui.onShowFailure)
 }
 
-const onIndexInventory = (event) => {
+const onIndexInventory = event => {
   event.preventDefault()
   api.indexInventory()
     .then(ui.onIndexSuccess)
@@ -18,10 +18,11 @@ const onIndexInventory = (event) => {
 }
 
 const onCreateItem = event => {
+  console.log(event)
   event.preventDefault()
   const data = getFormFields(event.target)
-  $(event.target).trigger('reset')
-  api.createPost(data)
+  // $(event.target).trigger('reset')
+  api.createItem(data)
     .then(ui.createItemSuccess)
     .catch(ui.createItemFailure)
 }
@@ -34,7 +35,7 @@ const onDeleteItem = event => {
     .catch(ui.deleteItemFailure)
 }
 
-const onUpdateItem = (event) => {
+const onUpdateItem = event => {
   event.preventDefault()
   const currUserId = store.user.id
   const updateItemData = {

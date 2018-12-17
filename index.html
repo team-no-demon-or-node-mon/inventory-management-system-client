@@ -81,21 +81,27 @@
           <form id="update-item">
             <h4>Edit an Item</h4>
             <input type="text" name="id" placeholder="Item Id" id="update-id" class="forms">
-            <input type="text" name="source" placeholder="Source" id="update-source" class="forms">
-            <input type="text" name="amount" placeholder="Amount" id="update-amount" class="forms">
-            <input type="text" name="category" placeholder="Category" id="update-category" class="forms">
+            <input type="text" name="upc" placeholder="UPC" id="update-upc" class="forms">
             <input type="text" name="description" placeholder="Description" id="update-description" class="forms">
+            <input type="text" name="price" placeholder="Price" id="update-price" class="forms">
+            <input type="text" name="cost" placeholder="Cost" id="update-cost" class="forms">
+            <input type="text" name="quantity" placeholder="Quantity" id="update-quantity" class="forms">
+            <input type="text" name="ads" placeholder="Average Daily Sales" id="update-ads" class="forms">
             <input type="submit" value="Go" class="buttons">
           </form>
         </div>
           <!-- Enter an item form -->
         <form id="create-item">
-          <h4>Add an Item</h4>
-          <input type="text" name="source" placeholder="Source" id="create-source" class="forms">
-          <input type="text" name="amount" placeholder="Amount" id="create-amount" class="forms">
-          <input type="text" name="category" placeholder="Category" id="create-category" class="forms">
-          <input type="text" name="description" placeholder="Description" id="create-description" class="forms">
-          <input type="submit" value="Go" class="buttons">
+          <fieldset>
+            <h4>Add an Item</h4>
+            <input type="text" name="upc" placeholder="UPC" id="create-upc" class="forms">
+            <input type="text" name="description" placeholder="Description" id="create-description" class="forms">
+            <input type="text" name="price" placeholder="Price" id="create-price" class="forms">
+            <input type="text" name="cost" placeholder="Cost" id="create-cost" class="forms">
+            <input type="text" name="quantity" placeholder="Quantity" id="create-quantity" class="forms">
+            <input type="text" name="ads" placeholder="Average Daily Sales" id="create-ads" class="forms">
+            <input type="submit" value="Go" class="buttons">
+          </fieldset>
         </form>
         <div id-="results">
         </div>

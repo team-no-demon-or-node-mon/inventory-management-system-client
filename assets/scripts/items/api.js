@@ -3,7 +3,7 @@ const store = require('../store.js')
 
 const showItem = (data) => {
   $.ajax({
-    url: config.apiUrl + '/inventory/' + $('#show-id').val(),
+    url: config.apiUrl + '/items/' + $('#show-id').val(),
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -13,7 +13,7 @@ const showItem = (data) => {
 
 const indexItems = () => {
   $.ajax({
-    url: config.apiUrl + '/inventory',
+    url: config.apiUrl + '/items',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -23,7 +23,7 @@ const indexItems = () => {
 
 const createItem = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/items/',
+    url: config.apiUrl + '/items',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -34,7 +34,7 @@ const createItem = function (data) {
 
 const deleteItem = data => {
   return $.ajax({
-    url: config.apiUrl + '/delete-item',
+    url: config.apiUrl + '/items/',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -4,10 +4,11 @@ const resetForms = () => {
   $('#create-inventory')[0].reset()
   $('#destroy-inventory')[0].reset()
   $('#update-inventory')[0].reset()
-  $('#results').html('')
+  // $('#results').html('')
 }
 
 const onShowSuccess = (response) => {
+  console.log(response)
   resetForms()
   const expenseHTML = (`
     <h6>ID: ${response.inventory.id}</h6>
@@ -19,7 +20,8 @@ const onShowSuccess = (response) => {
   $('#results').html(expenseHTML)
 }
 
-const onShowFailure = () => {
+const onShowFailure = (data) => {
+  console.error('did not run', data)
   resetForms()
   $('#results').html('Show Inventory Failed')
 }
@@ -38,7 +40,7 @@ const onIndexSuccess = (response) => {
   })
 }
 
-const deleteItemSuccess = data => {
+const deleteItemSuccess = (data) => {
   resetForms()
   $('#authmessage').text('Item deleted successfully')
   $('#authmessage').removeClass()
@@ -63,21 +65,23 @@ const onIndexFailure = () => {
 
 const onUpdateSuccess = () => {
   resetForms()
-  $('#results').html('Expense Updated')
+  $('#results').html('Item Updated')
 }
 
 const onUpdateFailure = () => {
   resetForms()
-  $('#results').html('Update Expense Failed')
+  $('#results').html('Update Item Failed')
 }
 
 const onCreateSuccess = (data) => {
-  $('#results').html('Expense Created')
+  console.log(data)
+  $('#results').html('Item Created')
   resetForms()
 }
 
-const onCreateFailure = () => {
-  $('#results').html('Create Expense Failed')
+const onCreateFailure = (data) => {
+  console.error('create did not run. data is:', data)
+  $('#results').html('Create Item Failed')
   resetForms()
 }
 
