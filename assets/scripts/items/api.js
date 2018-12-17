@@ -21,8 +21,8 @@ const indexItems = () => {
   })
 }
 
-const createItem = function (data) {
-  return $.ajax({
+const createItem = data => {
+  $.ajax({
     url: config.apiUrl + '/items',
     method: 'POST',
     headers: {

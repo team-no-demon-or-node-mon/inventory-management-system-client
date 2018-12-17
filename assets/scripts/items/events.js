@@ -1,3 +1,5 @@
+'use strict'
+
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
@@ -11,6 +13,7 @@ const onShowInventoryItem = event => {
 }
 
 const onIndexInventory = event => {
+  console.log('Alfred is nice')
   event.preventDefault()
   api.indexInventory()
     .then(ui.onIndexSuccess)
@@ -18,7 +21,7 @@ const onIndexInventory = event => {
 }
 
 const onCreateItem = event => {
-  console.log(event)
+  // debugger
   event.preventDefault()
   const data = getFormFields(event.target)
   // $(event.target).trigger('reset')

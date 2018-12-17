@@ -7,6 +7,7 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 const itemEvents = require('./items/events.js')
+const indexItems = require('./index.js')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -14,7 +15,7 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#show-item').on('submit', itemEvents.onShowInventoryItem)
-  $('#index-items').on('submit', itemEvents.onIndexInventory)
+  $('#index-items').on('submit', indexItems.indexItems)
   $('#create-item').on('submit', itemEvents.onCreateItem)
   $('#delete-item').on('submit', itemEvents.onDeleteItem)
   $('#update-item').on('submit', itemEvents.onUpdateItem)
