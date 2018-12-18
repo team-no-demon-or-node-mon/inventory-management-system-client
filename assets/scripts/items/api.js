@@ -7,7 +7,8 @@ const showItem = (data) => {
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
@@ -34,7 +35,7 @@ const createItem = data => {
 
 const deleteItem = data => {
   return $.ajax({
-    url: config.apiUrl + '/items/',
+    url: config.apiUrl + '/items/' + $('#delete-id').val(),
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -54,7 +55,7 @@ const updateItem = (data) => {
   })
 }
 
-module.export = {
+module.exports = {
   showItem,
   indexItems,
   createItem,

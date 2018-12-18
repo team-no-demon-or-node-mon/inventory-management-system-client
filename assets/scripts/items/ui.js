@@ -4,20 +4,21 @@ const resetForms = () => {
   $('#create-inventory')[0].reset()
   $('#destroy-inventory')[0].reset()
   $('#update-inventory')[0].reset()
-  // $('#results').html('')
+  $('#results').html('')
 }
 
 const onShowSuccess = (response) => {
-  console.log(response)
   resetForms()
-  const expenseHTML = (`
-    <h6>ID: ${response.inventory.id}</h6>
-    <p>Source: ${response.inventory.source}</p>
-    <p>Amount: ${response.inventory.amount}</p>
-    <p>Category: ${response.inventory.category}</p>
-    <p>Description: ${response.inventory.description}</p>
-    `)
-  $('#results').html(expenseHTML)
+  // const expenseHTML = (`
+  //   <h6>ID: ${items.id}</h6>
+  //   <p>UPC: ${items.ups}</p>
+  //   <p>Description: ${items.description}</p>
+  //   <p>Price: ${items.price}</p>
+  //   <p>Cost: ${items.cost}</p>
+  //   <p>Quantity: ${items.quantity}</p>
+  //   <p>Average Daily Sales: ${items.ads}</p>
+  //   `)
+  // $('#results').html(expenseHTML)
 }
 
 const onShowFailure = (data) => {
@@ -28,19 +29,27 @@ const onShowFailure = (data) => {
 
 const onIndexSuccess = (response) => {
   resetForms()
-  response.inventoryItems.forEach(inventory => {
-    const expenseHTML = (`
-      <h6>ID: ${inventory.id}</h6>
-      <p>Source: ${inventory.source}</p>
-      <p>Amount: ${inventory.amount}</p>
-      <p>Category: ${inventory.category}</p>
-      <p>Description: ${inventory.description}</p>
+  console.log(response)
+  response.items.forEach(items => {
+    const itemHTML = (`
+      <h6>ID: ${items.id}</h6>
+      <p>UPC: ${items.ups}</p>
+      <p>Description: ${items.description}</p>
+      <p>Price: ${items.price}</p>
+      <p>Cost: ${items.cost}</p>
+      <p>Quantity: ${items.quantity}</p>
+      <p>Average Daily Sales: ${items.ads}</p>
       `)
-    $('#results').append(expenseHTML)
+    $('#results').append(itemHTML)
   })
 }
 
-const deleteItemSuccess = (data) => {
+const onIndexFailure = () => {
+  resetForms()
+  $('#results').html('Show All Inventory Failed')
+}
+
+const onDeleteSuccess = (data) => {
   resetForms()
   $('#authmessage').text('Item deleted successfully')
   $('#authmessage').removeClass()
@@ -49,18 +58,13 @@ const deleteItemSuccess = (data) => {
   console.log('deleteItemSuccess ran. Data is :', data)
 }
 
-const deleteItemFailure = error => {
+const onDeleteFailure = error => {
   resetForms()
   $('#authmessage').text('Error on deleting item')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('failure')
   $('.forms').val('')
   console.error('deleteItemFailure ran. Error is :', error)
-}
-
-const onIndexFailure = () => {
-  resetForms()
-  $('#results').html('Show All Inventory Failed')
 }
 
 const onUpdateSuccess = () => {
@@ -85,13 +89,13 @@ const onCreateFailure = (data) => {
   resetForms()
 }
 
-module.export = {
+module.exports = {
   onShowSuccess,
   onShowFailure,
   onIndexSuccess,
   onIndexFailure,
-  deleteItemSuccess,
-  deleteItemFailure,
+  onDeleteSuccess,
+  onDeleteFailure,
   onCreateSuccess,
   onCreateFailure,
   onUpdateSuccess,

@@ -3,25 +3,23 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
-const store = require('../store.js')
+// const store = require('../store.js')
 
-const onShowInventoryItem = event => {
+const onShowItem = event => {
   event.preventDefault()
   api.showInventoryItem()
     .then(ui.onShowSuccess)
     .catch(ui.onShowFailure)
 }
 
-const onIndexInventory = event => {
-  console.log('Alfred is nice')
+const onIndexItems = event => {
   event.preventDefault()
-  api.indexInventory()
+  api.indexItems()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
 
 const onCreateItem = event => {
-  // debugger
   event.preventDefault()
   const data = getFormFields(event.target)
   // $(event.target).trigger('reset')
@@ -40,26 +38,29 @@ const onDeleteItem = event => {
 
 const onUpdateItem = event => {
   event.preventDefault()
-  const currUserId = store.user.id
-  const updateItemData = {
-    user_id: currUserId
-    // id: $('#update-id').val(),
-    // source: $('#update-source').val(),
-    // amount: $('#update-amount').val(),
-    // category: $('#update-category').val(),
-    // description: $('#update-description').val()
-  }
-  const data = {
-    item: updateItemData
-  }
+  // const currUserId = store.user.id
+  // const updateItemData = {
+  //   user_id: currUserId,
+  //   id: $('#update-id').val(),
+  //   upc: $('#update-upc').val(),
+  //   description: $('#update-description').val(),
+  //   price: $('#update-price').val(),
+  //   cost: $('#update-cost').val(),
+  //   quantity: $('#update-quantity').val(),
+  //   ads: $('#update-ads').val()
+  // }
+  // const data = {
+  //   item: updateItemData
+  // }
+  const data = getFormFields(event.target)
   api.updateItem(data)
     .then(ui.onUpdateSuccess)
     .catch(ui.onUpdateFailure)
 }
 
-module.export = {
-  onShowInventoryItem,
-  onIndexInventory,
+module.exports = {
+  onShowItem,
+  onIndexItems,
   onCreateItem,
   onDeleteItem,
   onUpdateItem
