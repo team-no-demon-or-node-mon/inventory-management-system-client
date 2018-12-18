@@ -60,8 +60,13 @@ const onUpdateItem = event => {
 }
 
 module.exports = {
+<<<<<<< HEAD
   onShowItem,
   onIndexItems,
+=======
+  onShowInventoryItem,
+  onIndexInventory,
+>>>>>>> Fixed Issues with module export
   onCreateItem,
   onDeleteItem,
   onUpdateItem
