@@ -1,39 +1,40 @@
 const resetForms = () => {
-  $('#show-inventory')[0].reset()
-  $('#index-inventory')[0].reset()
-  $('#create-inventory')[0].reset()
-  $('#destroy-inventory')[0].reset()
-  $('#update-inventory')[0].reset()
+  $('#show-item')[0].reset()
+  $('#index-items')[0].reset()
+  $('#create-item')[0].reset()
+  $('#delete-item')[0].reset()
+  $('#update-item')[0].reset()
   $('#results').html('')
 }
 
-const onShowSuccess = (response) => {
+const showSuccess = (response) => {
   resetForms()
-  // const expenseHTML = (`
-  //   <h6>ID: ${items.id}</h6>
-  //   <p>UPC: ${items.ups}</p>
-  //   <p>Description: ${items.description}</p>
-  //   <p>Price: ${items.price}</p>
-  //   <p>Cost: ${items.cost}</p>
-  //   <p>Quantity: ${items.quantity}</p>
-  //   <p>Average Daily Sales: ${items.ads}</p>
-  //   `)
-  // $('#results').html(expenseHTML)
+  console.log(response)
+  const itemHTML = (`
+    <h6>ID: ${response.item._id}</h6>
+    <p>UPC: ${response.item.upc}</p>
+    <p>Description: ${response.item.description}</p>
+    <p>Price: ${response.item.price}</p>
+    <p>Cost: ${response.item.cost}</p>
+    <p>Quantity: ${response.item.quantity}</p>
+    <p>Average Daily Sales: ${response.item.ads}</p>
+    `)
+  $('#results').html(itemHTML)
 }
 
-const onShowFailure = (data) => {
+const showFailure = (data) => {
   console.error('did not run', data)
   resetForms()
   $('#results').html('Show Inventory Failed')
 }
 
-const onIndexSuccess = (response) => {
+const indexSuccess = (response) => {
   resetForms()
   console.log(response)
   response.items.forEach(items => {
     const itemHTML = (`
-      <h6>ID: ${items.id}</h6>
-      <p>UPC: ${items.ups}</p>
+      <h6>ID: ${items._id}</h6>
+      <p>UPC: ${items.upc}</p>
       <p>Description: ${items.description}</p>
       <p>Price: ${items.price}</p>
       <p>Cost: ${items.cost}</p>
@@ -44,12 +45,12 @@ const onIndexSuccess = (response) => {
   })
 }
 
-const onIndexFailure = () => {
+const indexFailure = () => {
   resetForms()
   $('#results').html('Show All Inventory Failed')
 }
 
-const onDeleteSuccess = (data) => {
+const deleteSuccess = (data) => {
   resetForms()
   $('#authmessage').text('Item deleted successfully')
   $('#authmessage').removeClass()
@@ -58,7 +59,7 @@ const onDeleteSuccess = (data) => {
   console.log('deleteItemSuccess ran. Data is :', data)
 }
 
-const onDeleteFailure = error => {
+const deleteFailure = error => {
   resetForms()
   $('#authmessage').text('Error on deleting item')
   $('#authmessage').removeClass()
@@ -67,37 +68,37 @@ const onDeleteFailure = error => {
   console.error('deleteItemFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = () => {
+const updateSuccess = () => {
   resetForms()
   $('#results').html('Item Updated')
 }
 
-const onUpdateFailure = () => {
+const updateFailure = () => {
   resetForms()
   $('#results').html('Update Item Failed')
 }
 
-const onCreateSuccess = (data) => {
+const createSuccess = (data) => {
   console.log(data)
   $('#results').html('Item Created')
   resetForms()
 }
 
-const onCreateFailure = (data) => {
+const createFailure = (data) => {
   console.error('create did not run. data is:', data)
   $('#results').html('Create Item Failed')
   resetForms()
 }
 
 module.exports = {
-  onShowSuccess,
-  onShowFailure,
-  onIndexSuccess,
-  onIndexFailure,
-  onDeleteSuccess,
-  onDeleteFailure,
-  onCreateSuccess,
-  onCreateFailure,
-  onUpdateSuccess,
-  onUpdateFailure
+  showSuccess,
+  showFailure,
+  indexSuccess,
+  indexFailure,
+  deleteSuccess,
+  deleteFailure,
+  createSuccess,
+  createFailure,
+  updateSuccess,
+  updateFailure
 }

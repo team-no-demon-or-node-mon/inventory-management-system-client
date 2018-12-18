@@ -7,16 +7,16 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onShowItem = event => {
   event.preventDefault()
-  api.showInventoryItem()
-    .then(ui.onShowSuccess)
-    .catch(ui.onShowFailure)
+  api.showItem()
+    .then(ui.showSuccess)
+    .catch(ui.showFailure)
 }
 
 const onIndexItems = event => {
   event.preventDefault()
   api.indexItems()
-    .then(ui.onIndexSuccess)
-    .catch(ui.onIndexFailure)
+    .then(ui.indexSuccess)
+    .catch(ui.indexFailure)
 }
 
 const onCreateItem = event => {
@@ -24,16 +24,16 @@ const onCreateItem = event => {
   const data = getFormFields(event.target)
   // $(event.target).trigger('reset')
   api.createItem(data)
-    .then(ui.createItemSuccess)
-    .catch(ui.createItemFailure)
+    .then(ui.createSuccess)
+    .catch(ui.createFailure)
 }
 
 const onDeleteItem = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.deleteItem(data)
-    .then(ui.deleteItemSuccess)
-    .catch(ui.deleteItemFailure)
+    .then(ui.deleteSuccess)
+    .catch(ui.deleteFailure)
 }
 
 const onUpdateItem = event => {
@@ -54,8 +54,8 @@ const onUpdateItem = event => {
   // }
   const data = getFormFields(event.target)
   api.updateItem(data)
-    .then(ui.onUpdateSuccess)
-    .catch(ui.onUpdateFailure)
+    .then(ui.updateSuccess)
+    .catch(ui.updateFailure)
 }
 
 module.exports = {

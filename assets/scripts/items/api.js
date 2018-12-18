@@ -1,8 +1,10 @@
+'use strict'
+
 const config = require('../config.js')
 const store = require('../store.js')
 
-const showItem = (data) => {
-  $.ajax({
+const showItem = data => {
+  return $.ajax({
     url: config.apiUrl + '/items/' + $('#show-id').val(),
     method: 'GET',
     headers: {
@@ -13,7 +15,7 @@ const showItem = (data) => {
 }
 
 const indexItems = () => {
-  $.ajax({
+  return $.ajax({
     url: config.apiUrl + '/items',
     method: 'GET',
     headers: {
@@ -23,7 +25,7 @@ const indexItems = () => {
 }
 
 const createItem = data => {
-  $.ajax({
+  return $.ajax({
     url: config.apiUrl + '/items',
     method: 'POST',
     headers: {
@@ -44,8 +46,8 @@ const deleteItem = data => {
   })
 }
 
-const updateItem = (data) => {
-  $.ajax({
+const updateItem = data => {
+  return $.ajax({
     url: config.apiUrl + '/items/' + $('#update-id').val(),
     method: 'PATCH',
     headers: {
