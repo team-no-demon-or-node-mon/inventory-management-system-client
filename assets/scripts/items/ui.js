@@ -1,3 +1,5 @@
+const showItemsTemplate = require('../templates/item-listing.handlebars')
+
 const resetForms = () => {
   $('#show-item')[0].reset()
   $('#index-items')[0].reset()
@@ -31,19 +33,19 @@ const showFailure = (data) => {
 const indexSuccess = (response) => {
   resetForms()
   console.log(response)
-  response.items.forEach(items => {
-    const itemHTML = (`
-      <h6>ID: ${items._id}</h6>
-      <p>UPC: ${items.upc}</p>
-      <p>Description: ${items.description}</p>
-      <p>Price: ${items.price}</p>
-      <p>Cost: ${items.cost}</p>
-      <p>Quantity: ${items.quantity}</p>
-      <p>Average Daily Sales: ${items.ads}</p>
-      `)
-    $('#results').append(itemHTML)
-  })
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  // prevent data adding onto itself with each "show books" click
+  $('#results').append(showItemsHtml)
 }
+//
+// const clearBooks = () => {
+//   $('.content').empty()
+// }
+//
+// const failure = (error) => {
+//   console.error(error)
+// }
 
 const indexFailure = () => {
   resetForms()
@@ -80,7 +82,11 @@ const updateFailure = () => {
 
 const createSuccess = (data) => {
   console.log(data)
-  $('#results').html('Item Created')
+  const showItemsHtml = showItemsTemplate({ items: data.items })
+  $('#results').empty()
+  // prevent data adding onto itself with each "show books" click
+  $('#results').append(showItemsHtml)
+  $('#authmessage').html('Item Created')
   resetForms()
 }
 

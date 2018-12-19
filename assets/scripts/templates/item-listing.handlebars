@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+          </script>
+    <title>Inventory Tracker</title>
+  </head>
+
+<body style="background-color:#fafafa; font-family:'Open Sans';">
+  <div class="jquery-script-clear"></div>
+
+<!--Table-->
+<div class="container" "table-responsive" style="margin-top:150px;">
+<table id="dest" class="table table-hover table-striped">
+<!--Table head-->
+  <thead>
+    <tr>
+      <th scope="col">ID #</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price Per Unit</th>
+      <th scope="col">Number of Items in Stock</th>
+      <th scope="col">Incoming Orders</th>
+      <th scope="col">Outgoing Orders</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+{{#each item as |item|}}
+  {{log item}}
+
+    <tr>
+      <td>{{item.upc}}</td>
+    <!--  <td>{{> partial}}</td> -->
+      <td>{{limit item.description 20}}</td>
+      <td>{{item.id}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.cost}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.ads}}</td>
+
+    </div>
+  </tr>
+
+{{/each}}
+</tr>
+</tbody>
+</table>
+</div>
+</body>

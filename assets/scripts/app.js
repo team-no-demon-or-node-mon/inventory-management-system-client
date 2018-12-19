@@ -7,6 +7,7 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 const itemEvents = require('./items/events.js')
+const addSortWidget = require('./sorttable.js')
 
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -18,4 +19,5 @@ $(() => {
   $('#create-item').on('submit', itemEvents.onCreateItem)
   $('#delete-item').on('submit', itemEvents.onDeleteItem)
   $('#update-item').on('submit', itemEvents.onUpdateItem)
+  $('#example').addSortWidget()
 })
