@@ -22,6 +22,7 @@ const onIndexItems = event => {
 const onCreateItem = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('hello')
   // $(event.target).trigger('reset')
   api.createItem(data)
     .then(ui.createSuccess)
@@ -30,7 +31,7 @@ const onCreateItem = event => {
 
 const onDeleteItem = event => {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = $('#delete-id').val()
   api.deleteItem(data)
     .then(ui.deleteSuccess)
     .catch(ui.deleteFailure)
