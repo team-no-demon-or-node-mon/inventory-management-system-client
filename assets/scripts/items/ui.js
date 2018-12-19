@@ -4,12 +4,13 @@ const resetForms = () => {
   $('#create-item')[0].reset()
   $('#delete-item')[0].reset()
   $('#update-item')[0].reset()
-  $('#results').html('')
+  $('#results').text('')
 }
 
 const showSuccess = (response) => {
   resetForms()
   console.log(response)
+  $('#resultsMessage').text('Item:')
   const itemHTML = (`
     <h6>ID: ${response.item._id}</h6>
     <p>UPC: ${response.item.upc}</p>
@@ -19,18 +20,19 @@ const showSuccess = (response) => {
     <p>Quantity: ${response.item.quantity}</p>
     <p>Average Daily Sales: ${response.item.ads}</p>
     `)
-  $('#results').html(itemHTML)
+  $('#results').text(itemHTML)
 }
 
 const showFailure = (data) => {
   console.error('did not run', data)
   resetForms()
-  $('#results').html('Show Inventory Failed')
+  $('#results').text('Show Inventory Failed')
 }
 
 const indexSuccess = (response) => {
   resetForms()
   console.log(response)
+  $('#resultsMessage').text('Inventory:')
   response.items.forEach(items => {
     const itemHTML = (`
       <h6>ID: ${items._id}</h6>
@@ -47,12 +49,12 @@ const indexSuccess = (response) => {
 
 const indexFailure = () => {
   resetForms()
-  $('#results').html('Show All Inventory Failed')
+  $('#resultsMessage').text('Could Not Retrieve Inventory')
 }
 
 const deleteSuccess = (data) => {
   resetForms()
-  $('#authmessage').text('Item deleted successfully')
+  $('#resultsMessage').text('Item deleted successfully')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('success')
   $('.forms').val('')
@@ -61,7 +63,7 @@ const deleteSuccess = (data) => {
 
 const deleteFailure = error => {
   resetForms()
-  $('#authmessage').text('Error on deleting item')
+  $('#resultsMessage').text('Error deleting item')
   $('#authmessage').removeClass()
   $('#authmessage').addClass('failure')
   $('.forms').val('')
@@ -70,23 +72,23 @@ const deleteFailure = error => {
 
 const updateSuccess = () => {
   resetForms()
-  $('#results').html('Item Updated')
+  $('#resultsMessage').text('Item Updated')
 }
 
 const updateFailure = () => {
   resetForms()
-  $('#results').html('Update Item Failed')
+  $('#resultsMessage').text('Could Not Update Item')
 }
 
 const createSuccess = (data) => {
   console.log(data)
-  $('#results').html('Item Created')
+  $('#resultsMessage').text('Item Created')
   resetForms()
 }
 
 const createFailure = (data) => {
   console.error('create did not run. data is:', data)
-  $('#results').html('Create Item Failed')
+  $('#resultsMessage').text('Create Item Failed')
   resetForms()
 }
 

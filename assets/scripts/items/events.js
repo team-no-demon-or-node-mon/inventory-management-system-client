@@ -57,6 +57,9 @@ const onUpdateItem = event => {
   api.updateItem(data)
     .then(ui.updateSuccess)
     .catch(ui.updateFailure)
+  // api.showItem()
+  //   .then(ui.showSuccess)
+  //   .catch(ui.showFailure)
 }
 
 module.exports = {
