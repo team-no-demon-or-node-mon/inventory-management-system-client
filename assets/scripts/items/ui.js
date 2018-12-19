@@ -1,4 +1,5 @@
 const showItemsTemplate = require('../templates/item-listing.handlebars')
+const showOneItemTemplate = require('../templates/single-item-listing.handlebars')
 
 const resetForms = () => {
   $('#show-item')[0].reset()
@@ -12,16 +13,8 @@ const resetForms = () => {
 const showSuccess = (response) => {
   resetForms()
   console.log(response)
-  const itemHTML = (`
-    <h6>ID: ${response.item._id}</h6>
-    <p>UPC: ${response.item.upc}</p>
-    <p>Description: ${response.item.description}</p>
-    <p>Price: ${response.item.price}</p>
-    <p>Cost: ${response.item.cost}</p>
-    <p>Quantity: ${response.item.quantity}</p>
-    <p>Average Daily Sales: ${response.item.ads}</p>
-    `)
-  $('#results').html(itemHTML)
+  const showItemsHtml = showOneItemTemplate({ item: response })
+  $('#results').html(showItemsHtml)
 }
 
 const showFailure = (data) => {

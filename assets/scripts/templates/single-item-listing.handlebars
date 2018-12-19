@@ -16,8 +16,7 @@
   </thead>
   <tbody>
 
-{{#each items as |item|}}
-  {{log item}}
+  {{#each item as |item|}}
 
     <tr>
       <td>{{item._id}}</td>
@@ -31,7 +30,8 @@
     </div>
   </tr>
 
-{{/each}}
+  {{/each}}
+
 </tr>
 </tbody>
 </table>
