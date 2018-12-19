@@ -37,12 +37,12 @@ const createItem = data => {
 
 const deleteItem = data => {
   return $.ajax({
-    url: config.apiUrl + '/items/' + $('#delete-id').val(),
+    url: config.apiUrl + '/items/' + data,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: {}
   })
 }
 

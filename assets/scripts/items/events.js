@@ -31,7 +31,7 @@ const onCreateItem = event => {
 
 const onDeleteItem = event => {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = $('#delete-id').val()
   api.deleteItem(data)
     .then(ui.deleteSuccess)
     .catch(ui.deleteFailure)
