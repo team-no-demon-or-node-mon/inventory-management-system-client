@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Inventory Tracker</title>
+      <title>Handlebars</title>
+
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,7 +11,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
+
     <body>
 
       <h1>Inventory Tracker</h1>
@@ -24,7 +25,7 @@
           <input type="text" name="credentials[email]" placeholder="Email" class="forms">
           <input type="password" name="credentials[password]" placeholder="Password" class="forms">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
-          <input type="submit" value="Sign Up" class="buttons">
+          <button type="submit" value="Sign Up" class="buttons">Sign Up</button>
         </fieldset>
       </form>
       <!-- sign in form -->
@@ -33,7 +34,7 @@
           <legend>Sign In</legend>
           <input type="text" name="credentials[email]" placeholder="Email" class="forms">
           <input type="password" name="credentials[password]" placeholder="Password" class="forms">
-          <input type="submit" value="Sign In" class="buttons">
+          <button type="submit" value="Sign In" class="buttons">Sign In</button>
         </fieldset>
       </form>
         <!-- change password form -->
@@ -43,7 +44,7 @@
           <input type="password" name="passwords[old]" placeholder="Old password" class="forms">
           <input type="password" name="passwords[new]" placeholder="New password" class="forms">
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
-          <input type="submit" value="Change password" class="buttons">
+          <button type="submit" value="Change password" class="buttons">Change Password</button>
         </fieldset>
       </form>
       <!-- sign out button-->
@@ -58,14 +59,14 @@
           <fieldset>
             <legend>See an Inventory Item</legend>
             <input type="text" name="id" placeholder="Item Id" id="show-id" class="forms">
-            <input type="submit" value="Go" class="buttons">
+            <button type="submit" value="Go" class="buttons">Go</button>
           </fieldset>
         </form>
         <!-- see all inventory items -->
         <form id="index-items">
           <fieldset>
             <legend>See all Inventory Items</legend>
-            <input type="submit" value="Show All Inventory" class="buttons">
+            <button type="submit" value="Show All Inventory" class="buttons">Show All Inventory</button>
           </fieldset>
         </form>
       </div>
@@ -74,7 +75,7 @@
         <fieldset>
           <legend>Remove an Item from Inventory</legend>
           <input type="text" name="item[id]" placeholder="Item Id" id="delete-id" class="forms">
-          <input type="submit" value='Delete' class="buttons">
+          <button type="submit" value='Delete' class="button">Submit</button>
         </fieldset>
       </form>
       <!-- Edit an item form -->
@@ -88,7 +89,7 @@
           <input type="text" name="item[cost]" placeholder="Cost" id="update-cost" class="forms">
           <input type="text" name="item[quantity]" placeholder="Quantity" id="update-quantity" class="forms">
           <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="update-ads" class="forms">
-          <input type="submit" value="Go" class="buttons">
+          <button type="submit" value="Go" class="buttton">Submit</button>
       </fieldset>
       </form>
           <!-- Enter an item form -->
@@ -114,7 +115,7 @@
          <input type="text" name="item[cost]" placeholder="Cost" id="create-cost" class="forms">
          <input type="text" name="item[quantity]" placeholder="Quantity" id="create-quantity" class="forms">
          <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="create-ads" class="forms">
-         <input type="submit" value="Submit item">
+         <button type="submit" value="Submit item">Submit Item</button>
        </fieldset>
       </form>
 

@@ -1,3 +1,7 @@
+const showItemsTemplate = require('../templates/item-listing.handlebars')
+const showOneItemTemplate = require('../templates/single-item-listing.handlebars')
+const api = require('./api.js')
+
 const resetForms = () => {
   $('#show-item')[0].reset()
   $('#index-items')[0].reset()
@@ -10,16 +14,7 @@ const resetForms = () => {
 const showSuccess = (response) => {
   resetForms()
   console.log(response)
-  $('#resultsMessage').text('Item:')
-  const itemHTML = (`
-    <h6>ID: ${response.item._id}</h6>
-    <p>UPC: ${response.item.upc}</p>
-    <p>Description: ${response.item.description}</p>
-    <p>Price: ${response.item.price}</p>
-    <p>Cost: ${response.item.cost}</p>
-    <p>Quantity: ${response.item.quantity}</p>
-    <p>Average Daily Sales: ${response.item.ads}</p>
-    `)
+  const showItemsHtml = showOneItemTemplate({ item: response })
   $('#results').text(itemHTML)
 }
 
@@ -32,20 +27,19 @@ const showFailure = (data) => {
 const indexSuccess = (response) => {
   resetForms()
   console.log(response)
-  $('#resultsMessage').text('Inventory:')
-  response.items.forEach(items => {
-    const itemHTML = (`
-      <h6>ID: ${items._id}</h6>
-      <p>UPC: ${items.upc}</p>
-      <p>Description: ${items.description}</p>
-      <p>Price: ${items.price}</p>
-      <p>Cost: ${items.cost}</p>
-      <p>Quantity: ${items.quantity}</p>
-      <p>Average Daily Sales: ${items.ads}</p>
-      `)
-    $('#results').append(itemHTML)
-  })
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  // prevent data adding onto itself with each "show books" click
+  $('#results').append(showItemsHtml)
 }
+//
+// const clearBooks = () => {
+//   $('.content').empty()
+// }
+//
+// const failure = (error) => {
+//   console.error(error)
+// }
 
 const indexFailure = () => {
   resetForms()
@@ -59,6 +53,9 @@ const deleteSuccess = (data) => {
   $('#authmessage').addClass('success')
   $('.forms').val('')
   console.log('deleteItemSuccess ran. Data is :', data)
+  // after item is deleted, show list of items with ommission
+  api.indexItems()
+    .then(indexSuccess)
 }
 
 const deleteFailure = error => {
@@ -73,6 +70,9 @@ const deleteFailure = error => {
 const updateSuccess = () => {
   resetForms()
   $('#resultsMessage').text('Item Updated')
+  // after item is updated, show list of items with updated item
+  api.indexItems()
+   .then(indexSuccess)
 }
 
 const updateFailure = () => {
@@ -82,8 +82,16 @@ const updateFailure = () => {
 
 const createSuccess = (data) => {
   console.log(data)
+  const showItemsHtml = showItemsTemplate({ items: data.items })
+  $('#results').empty()
+  // prevent data adding onto itself with each "show books" click
+  $('#results').append(showItemsHtml)
   $('#resultsMessage').text('Item Created')
+
   resetForms()
+  // after item is added, show list of items with added item
+  api.indexItems()
+    .then(indexSuccess)
 }
 
 const createFailure = (data) => {
