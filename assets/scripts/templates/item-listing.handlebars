@@ -12,6 +12,8 @@
       <th scope="col" onclick="sortTable(4)">Cost</th>
       <th scope="col" onclick="sortTable(5)">Quantity</th>
       <th scope="col" onclick="sortTable(6)">ADS</th>
+      <th scope="col" onclick="sortTable(7)">Needs Replenishment?</th>
+
 
     </tr>
   </thead>
@@ -30,6 +32,8 @@
       <td>{{item.cost}}</td>
       <td>{{item.quantity}}</td>
       <td>{{item.ads}}</td>
+      <td>{{item.needsReplenishment?}}</td>
+
     </div>
   </tr>
 
