@@ -88,6 +88,7 @@ const changePasswordFailure = error => {
 
 const signOutSuccess = data => {
   authMessageClear()
+  $('#results2').text('')
   // ui.resetForms()
   $('#authMessage').text('Signed out successfully')
   store.user = null
@@ -112,6 +113,7 @@ const signOutSuccess = data => {
 
 const signOutFailure = error => {
   authMessageClear()
+  $('#results2').text('')
   $('#authMessage').text('Error on sign out')
   $('#authMessage').removeClass()
   $('#authMessage').addClass('failure')
@@ -126,5 +128,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  authMessageClear
 }
