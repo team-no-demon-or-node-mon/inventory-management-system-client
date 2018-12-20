@@ -15,7 +15,7 @@ const showSuccess = (response) => {
   resetForms()
   console.log(response)
   const showItemsHtml = showOneItemTemplate({ item: response })
-  $('#results').text(itemHTML)
+  $('#results').text(showItemsHtml)
 }
 
 const showFailure = (data) => {
@@ -67,12 +67,12 @@ const deleteFailure = error => {
   console.error('deleteItemFailure ran. Error is :', error)
 }
 
-const updateSuccess = () => {
+const updateSuccess = (response) => {
   resetForms()
-  $('#resultsMessage').text('Item Updated')
-  // after item is updated, show list of items with updated item
-  api.indexItems()
-   .then(indexSuccess)
+  const showItemsHtml = showOneItemTemplate({ item: response })
+  console.log(response)
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
 }
 
 const updateFailure = () => {
