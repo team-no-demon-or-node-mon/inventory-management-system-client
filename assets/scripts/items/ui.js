@@ -1,6 +1,8 @@
 const showItemsTemplate = require('../templates/item-listing.handlebars')
 const showOneItemTemplate = require('../templates/single-item-listing.handlebars')
-const api = require('./api.js')
+// const authClear = require('./auth.ui.js')
+
+
 
 const resetForms = () => {
   $('#show-item')[0].reset()
@@ -9,13 +11,16 @@ const resetForms = () => {
   $('#delete-item')[0].reset()
   $('#update-item')[0].reset()
   $('#results').text('')
+  $('#resultsMessage').text('')
 }
 
 const showSuccess = (response) => {
   resetForms()
   console.log(response)
   const showItemsHtml = showOneItemTemplate({ item: response })
-  $('#results').text(itemHTML)
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#resultsMessage').text('Item:')
 }
 
 const showFailure = (data) => {
@@ -31,6 +36,7 @@ const indexSuccess = (response) => {
   $('#results').empty()
   // prevent data adding onto itself with each "show books" click
   $('#results').append(showItemsHtml)
+  $('#resultsMessage').text('Inventory:')
 }
 //
 // const clearBooks = () => {
@@ -67,12 +73,13 @@ const deleteFailure = error => {
   console.error('deleteItemFailure ran. Error is :', error)
 }
 
-const updateSuccess = () => {
+const updateSuccess = (data) => {
   resetForms()
-  $('#resultsMessage').text('Item Updated')
-  // after item is updated, show list of items with updated item
-  api.indexItems()
-   .then(indexSuccess)
+  console.log(data)
+  const showItemsHtml = showOneItemTemplate({ item: data })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#resultsMessage').text('Item successfully updated')
 }
 
 const updateFailure = () => {
@@ -81,17 +88,12 @@ const updateFailure = () => {
 }
 
 const createSuccess = (data) => {
-  console.log(data)
-  const showItemsHtml = showItemsTemplate({ items: data.items })
-  $('#results').empty()
-  // prevent data adding onto itself with each "show books" click
-  $('#results').append(showItemsHtml)
-  $('#resultsMessage').text('Item Created')
-
   resetForms()
-  // after item is added, show list of items with added item
-  api.indexItems()
-    .then(indexSuccess)
+  console.log(data)
+  const showItemsHtml = showOneItemTemplate({ item: data })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#resultsMessage').text('Item Successfully Created')
 }
 
 const createFailure = (data) => {

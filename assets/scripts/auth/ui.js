@@ -12,6 +12,7 @@ const store = require('../store.js')
 const authMessageClear = () => {
   $('#authMessage').text('')
 }
+// const ui = require('./ui.js')
 
 const signUpSuccess = data => {
   authMessageClear()
@@ -87,6 +88,7 @@ const changePasswordFailure = error => {
 
 const signOutSuccess = data => {
   authMessageClear()
+  // ui.resetForms()
   $('#authMessage').text('Signed out successfully')
   store.user = null
   $('#authMessage').removeClass()
@@ -102,6 +104,9 @@ const signOutSuccess = data => {
   $('#create-item').hide()
   $('#delete-item').hide()
   $('#update-item').hide()
+  $('#results').text('')
+  $('#resultsMessage').text('')
+  // ui.resetForms()
   //    .catch()
 }
 
