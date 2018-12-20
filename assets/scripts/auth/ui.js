@@ -12,6 +12,7 @@ const store = require('../store.js')
 const authMessageClear = () => {
   $('#authMessage').text('')
 }
+// const ui = require('./ui.js')
 
 const signUpSuccess = data => {
   authMessageClear()
@@ -87,6 +88,8 @@ const changePasswordFailure = error => {
 
 const signOutSuccess = data => {
   authMessageClear()
+  $('#results2').text('')
+  // ui.resetForms()
   $('#authMessage').text('Signed out successfully')
   store.user = null
   $('#authMessage').removeClass()
@@ -102,11 +105,15 @@ const signOutSuccess = data => {
   $('#create-item').hide()
   $('#delete-item').hide()
   $('#update-item').hide()
+  $('#results').text('')
+  $('#resultsMessage').text('')
+  // ui.resetForms()
   //    .catch()
 }
 
 const signOutFailure = error => {
   authMessageClear()
+  $('#results2').text('')
   $('#authMessage').text('Error on sign out')
   $('#authMessage').removeClass()
   $('#authMessage').addClass('failure')
@@ -121,5 +128,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  authMessageClear
 }
