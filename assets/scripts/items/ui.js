@@ -1,5 +1,6 @@
 const showItemsTemplate = require('../templates/item-listing.handlebars')
 const showOneItemTemplate = require('../templates/single-item-listing.handlebars')
+const api = require('./api.js')
 
 const resetForms = () => {
   $('#show-item')[0].reset()
@@ -52,6 +53,9 @@ const deleteSuccess = (data) => {
   $('#authmessage').addClass('success')
   $('.forms').val('')
   console.log('deleteItemSuccess ran. Data is :', data)
+  // after item is deleted, show list of items with ommission
+  api.indexItems()
+    .then(indexSuccess)
 }
 
 const deleteFailure = error => {
@@ -66,6 +70,9 @@ const deleteFailure = error => {
 const updateSuccess = () => {
   resetForms()
   $('#authmessage').html('Item Updated')
+  // after item is updated, show list of items with updated item
+  api.indexItems()
+    .then(indexSuccess)
 }
 
 const updateFailure = () => {
@@ -81,6 +88,9 @@ const createSuccess = (data) => {
   $('#results').append(showItemsHtml)
   $('#authmessage').html('Item Created')
   resetForms()
+  // after item is added, show list of items with added item
+  api.indexItems()
+    .then(indexSuccess)
 }
 
 const createFailure = (data) => {

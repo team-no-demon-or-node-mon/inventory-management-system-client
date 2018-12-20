@@ -21,7 +21,7 @@
   {{log item}}
 
     <tr>
-      <td>{{item._id}}</td>
+      <td>{{limit item._id 24}}</td>
     <!--  <td>{{> partial}}</td> -->
       <td>{{item.upc}}</td>
       <td>{{limit item.description 15}}</td>
@@ -73,6 +73,7 @@ function sortTable(n) {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
           // If so, mark as a switch and break the loop:
           shouldSwitch = true;
+
           break;
         }
       }
