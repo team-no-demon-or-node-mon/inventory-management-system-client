@@ -65,7 +65,7 @@ const deleteFailure = error => {
 
 const updateSuccess = () => {
   resetForms()
-  $('#results').html('Item Updated')
+  $('#authmessage').html('Item Updated')
 }
 
 const updateFailure = () => {
