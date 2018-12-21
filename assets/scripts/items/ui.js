@@ -9,126 +9,90 @@ const resetForms = () => {
   $('#delete-item')[0].reset()
   $('#update-item')[0].reset()
   $('#results').text('')
-  // $('#resultsMessage').text('')
 }
 
 const showSuccess = (response) => {
   resetForms()
-  console.log(response)
   const showItemsHtml = showOneItemTemplate({ item: response })
   $('#results').empty()
   $('#results').append(showItemsHtml)
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#resultsMessage').text('Item:')
-  $('#authMessage').text('')
+  $('#results-message').text('Item:')
+  $('#auth-message').text('')
 }
 
 const showFailure = (data) => {
-  console.error('did not run', data)
   resetForms()
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#resultsMessage').text('Show Inventory Failed')
-  $('#authMessage').text('')
+  $('#results-message').text('Show Inventory Failed')
+  $('#auth-message').text('')
 }
 
 const indexSuccess = (response) => {
   resetForms()
-  console.log(response)
   const showItemsHtml = showItemsTemplate({ items: response.items })
   $('#results').empty()
-  // prevent data adding onto itself with each "show books" click
   $('#results').append(showItemsHtml)
-  // $('#resultsMessage').text('Inventory:')
-  $('#resultsMessage').text('')
-  $('#authMessage').text('')
+  $('#results-message').text('')
+  $('#auth-message').text('')
 }
-//
-// const clearBooks = () => {
-//   $('.content').empty()
-// }
-//
-// const failure = (error) => {
-//   console.error(error)
-// }
+
+const indexSuccess1 = (response) => {
+  resetForms()
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#auth-message').text('')
+}
 
 const indexFailure = () => {
   resetForms()
-  $('#results3').text('')
-  $('#results2').text('')
-  $('#resultsMessage').text('Could Not Retrieve Inventory')
-  $('#authMessage').text('')
+  $('#results-message').text('Could Not Retrieve Inventory')
+  $('#auth-message').text('')
 }
 
 const deleteSuccess = (data) => {
   resetForms()
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('success')
-  console.log('deleteItemSuccess ran. Data is :', data)
-  $('#authMessage').text('')
-  // after item is deleted, show list of items with ommission
-  // const showItemsHtml = showItemsTemplate({ data: data. })
-  // $('#results').append(showItemsHtml)
-  // $('#resultsMessage').text('Item Deleted Successfully')
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#results2').text('Item Deleted Successfully')
-  api.indexItems()
-    .then(indexSuccess)
+  $('#auth-message').text('')
+  $('#results-message').text('Item Deleted Successfully')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
-const deleteFailure = error => {
+const deleteFailure = () => {
   resetForms()
-  $('#results2').text('')
-  $('#results3').text('')
   $('#resultsMessage').text('Error deleting item')
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('failure')
   $('.forms').val('')
-  $('#authMessage').text('')
-  console.error('deleteItemFailure ran. Error is :', error)
+  $('#auth-message').text('')
 }
 
 const updateSuccess = (data) => {
   resetForms()
-  console.log(data)
   const showItemsHtml = showOneItemTemplate({ item: data })
   $('#results').empty()
   $('#results').append(showItemsHtml)
-  $('#results2').text('')
-  $('#results3').text('Item successfully updated')
-  $('#authMessage').text('')
-  api.indexItems()
-    .then(indexSuccess)
+  $('#results-message').text('Item successfully updated')
+  $('#auth-message').text('')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
 const updateFailure = () => {
   resetForms()
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#resultsMessage').text('Could Not Update Item')
-  $('#authMessage').text('')
+  $('#results-message').text('Could Not Update Item')
+  $('#auth-message').text('')
 }
 
 const createSuccess = (data) => {
   resetForms()
-  console.log(data)
   const showItemsHtml = showOneItemTemplate({ item: data })
   $('#results').empty()
   $('#results').append(showItemsHtml)
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#resultsMessage').text('Item Successfully Created')
-  $('#authMessage').text('')
+  $('#results-message').text('Item Successfully Created')
+  $('#auth-message').text('')
 }
 
 const createFailure = (data) => {
-  console.error('create did not run. data is:', data)
-  $('#results2').text('')
-  $('#results3').text('')
-  $('#resultsMessage').text('Create Item Failed')
-  $('#authMessage').text('')
+  $('#results-message').text('Create Item Failed')
+  $('#auth-message').text('')
   resetForms()
 }
 
@@ -142,5 +106,6 @@ module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  indexSuccess1
 }
