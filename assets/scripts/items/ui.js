@@ -59,7 +59,7 @@ const deleteSuccess = (data) => {
 
 const deleteFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Error deleting item')
+  $('#results-message').text('Error deleting item')
   $('.forms').val('')
   $('#auth-message').text('')
 }

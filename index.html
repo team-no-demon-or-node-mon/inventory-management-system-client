@@ -15,6 +15,7 @@
       <img src="./nozama4.png" alt="Nozama Logo" style="width:610px;height:340px;" class="nozama">
 
       </head>
+
       <body class="container-fluid">
 
       <div class = "btn-group">
@@ -30,11 +31,81 @@
     <div id="auth-message">
 
     </div>
-  </body>
 
 
-      <!-- sign up form -->
-      <!-- <form class="sign-up" id="sign-up">
+
+<!--sign-in-->
+
+<div class="login-box" id="login-box">
+  <form id="sign-in">
+    <fieldset>
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+  </div>
+
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+  </div>
+
+  <input type="submit" class="button" value="Login">
+  </fieldset>
+</form>
+</div>
+
+
+<!-- sign-up -->
+<div class="login-box" id="signup-box">
+  <form id="sign-up">
+    <fieldset>
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+  </div>
+
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+  </div>
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
+  </div>
+
+  <input type="submit" class="button" value="Sign Up">
+  </fieldset>
+</form>
+</div>
+
+
+
+  <button type="button" class="button1" id="register">Register</button>
+
+  <button type="button" class="button1" id="login-top">Login</button>
+
+  <!-- <button type="button">Click Me!</button> -->
+
+
+
+
+
+
+
+    <!-- <form id="sign-in">
+      <fieldset>
+        <legend>Sign In</legend>
+        <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+        <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+        <button type="submit" value="Sign In" class="buttons">Sign In</button>
+      </fieldset>
+    </form>
+
+
+      <form class="sign-up" id="sign-up">
         <fieldset>
           <legend>Sign Up</legend>
           <input type="text" name="credentials[email]" placeholder="Email" class="forms">
@@ -44,21 +115,18 @@
         </fieldset>
       </form>
       <br> -->
-      <!-- sign in form -->
-      <!-- <form id="sign-in">
-        <fieldset>
-          <legend>Sign In</legend>
-          <input type="text" name="credentials[email]" placeholder="Email" class="forms">
-          <input type="password" name="credentials[password]" placeholder="Password" class="forms">
-          <button type="submit" value="Sign In" class="buttons">Sign In</button>
-        </fieldset>
-      </form> -->
 
-      <!-- sign out button-->
-      <!-- <form>
+
+
+      <!-- end -->
+
+      <!-- sign out button>
+      <form>
         <button type="button" id="sign-out" class="buttons">Sign Out</button>
-      </form> -->
-      <!-- create and inventory item -->
+      </form>
+
+
+      <! create and inventory item -->
       <form id="create-item">
        <fieldset>
          <legend>Add an Item</legend>

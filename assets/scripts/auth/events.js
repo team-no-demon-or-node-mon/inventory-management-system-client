@@ -35,9 +35,28 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const onRegClick = () => {
+  // event.preventDefault()
+  $('#login-box').hide()
+  $('#signup-box').show()
+  $('#register').hide()
+  $('#login-top').show()
+  // .then(ui.)
+  // .catch(ui.)
+}
+
+const onLoginClick = () => {
+  $('#login-box').show()
+  $('#signup-box').hide()
+  $('#login-top').hide()
+  $('#register').show()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onRegClick,
+  onLoginClick
 }

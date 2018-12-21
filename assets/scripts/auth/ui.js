@@ -8,6 +8,8 @@ $('#index-items').hide()
 $('#create-item').hide()
 $('#delete-item').hide()
 $('#update-item').hide()
+$('#signup-box').hide()
+$('#login-top').hide()
 
 const store = require('../store.js')
 
@@ -43,6 +45,8 @@ const signInSuccess = data => {
   $('#create-item').show()
   $('#delete-item').show()
   $('#update-item').show()
+  $('#register').hide()
+  $('#login-top').hide()
 }
 
 const signInFailure = () => {
@@ -86,6 +90,7 @@ const signOutSuccess = data => {
   $('#update-item').hide()
   $('#results').text('')
   $('#results-message').text('')
+  $('#register').show()
 }
 
 const signOutFailure = () => {

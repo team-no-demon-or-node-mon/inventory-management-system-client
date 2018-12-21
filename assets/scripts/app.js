@@ -13,4 +13,6 @@ $(() => {
   $('#create-item').on('submit', itemEvents.onCreateItem)
   $('#delete-item').on('submit', itemEvents.onDeleteItem)
   $('#update-item').on('submit', itemEvents.onUpdateItem)
+  $('#register').on('click', authEvents.onRegClick)
+  $('#login-top').on('click', authEvents.onLoginClick)
 })

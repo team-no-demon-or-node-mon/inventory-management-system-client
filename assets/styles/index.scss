@@ -33,6 +33,76 @@ body {
   background-size: cover;
 }
 
+.button1 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 30px;
+  width: 100px;
+  background: none;
+  border: 1px solid #e08700;
+  color: #e08700;
+  padding: 1px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 20px 20px;
+}
+
+//start
+
+body{
+  margin: 0;
+  padding: 0;
+  // font-family: sans-serif;
+  // background: url(bg.jpg) no-repeat;
+  // background-size: cover;
+}
+
+.login-box{
+  width: 260px;
+  position: absolute;
+  top: 62%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: white;
+}
+
+.textbox{
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #e08700;
+}
+.textbox i{
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+.textbox input{
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+.button {
+  width: 100%;
+  background: none;
+  border: 2px solid #e08700;
+  color: white;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+
+
 // gifs
 // https://media.giphy.com/media/aRZ4vTsHnyW6A/giphy.gif
 // https://media.giphy.com/media/3o7buijTqhjxjbEqjK/source.gif
