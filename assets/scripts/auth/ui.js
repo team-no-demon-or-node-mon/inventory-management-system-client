@@ -1,6 +1,7 @@
 'use strict'
 
 $('#change-password').hide()
+$('#change-password-nav').hide()
 $('#sign-out').hide()
 $('#show-item').hide()
 $('#index-items').hide()
@@ -35,7 +36,7 @@ const signInSuccess = data => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
-  $('#change-password').show()
+  $('#change-password-nav').show()
   $('.forms').val('')
   $('#show-item').show()
   $('#index-items').show()
