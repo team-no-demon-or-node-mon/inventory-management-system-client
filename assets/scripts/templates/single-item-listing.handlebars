@@ -1,0 +1,44 @@
+
+<!--Table-->
+<div class="container" "table-responsive-md" style="margin-top:150px;">
+<table id="dest" class="table table-hover table-striped table-bordered">
+<!--Table head-->
+  <thead>
+    <tr>
+      <th scope="col">ID #</th>
+      <th scope="col">UPC #</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price Per Unit</th>
+      <th scope="col">Cost</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">ADS</th>
+      <th scope="col">Needs Replenishment?</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+  {{#each item as |item|}}
+
+    <tr>
+      <td>{{item._id}}</td>
+    <!--  <td>{{> partial}}</td> -->
+      <td>{{item.upc}}</td>
+      <td>{{limit item.description 15}}</td>
+      <td>{{item.price}}</td>
+
+      <td>{{item.cost}}</td>
+      <td>{{item.quantity}}</td>
+      <td>{{item.ads}}</td>
+      <td>{{item.needsReplenishment?}}</td>
+
+    </div>
+  </tr>
+
+  {{/each}}
+
+</tr>
+</tbody>
+</table>
+</div>

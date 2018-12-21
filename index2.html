@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Handlebars</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    <body>
+      <h1>Inventory Tracker</h1>
+      <div id="authMessage">
+      </div>
+      <!-- sign up form -->
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign Up</legend>
+          <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+          <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
+          <button type="submit" value="Sign Up" class="buttons">Sign Up</button>
+        </fieldset>
+      </form>
+      <!-- sign in form -->
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In</legend>
+          <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+          <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+          <button type="submit" value="Sign In" class="buttons">Sign In</button>
+        </fieldset>
+      </form>
+        <!-- change password form -->
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old password" class="forms">
+          <input type="password" name="passwords[new]" placeholder="New password" class="forms">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
+          <button type="submit" value="Change password" class="buttons">Change Password</button>
+        </fieldset>
+      </form>
+      <!-- sign out button-->
+      <form>
+        <button type="button" id="sign-out" class="buttons">Sign Out</button>
+      </form>
+      <div id="showInventoryDiv">
+        <!-- see 1 inventory item -->
+        <div class="container">
+          <form id="show-item">
+            <fieldset>
+              <legend>See an Inventory Item</legend>
+              <div class="col-2">
+                <input type="text" name="id" placeholder="Item Id" id="show-id" class="forms">
+                <button type="submit" value="Go" class="buttons">Go</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <!-- see all inventory items -->
+        <div class="container">
+          <form id="index-items">
+            <fieldset>
+              <legend>See all Inventory Items</legend>
+              <button type="submit" value="Show All Inventory" class="buttons">Show All Inventory</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="container">
+        <form id="delete-item">
+          <fieldset>
+            <legend>Remove an Item from Inventory</legend>
+            <div class="col-2">
+              <input type="text" name="item[id]" placeholder="Item Id" id="delete-id" class="forms">
+              <button type="submit" value='Delete' class="button">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+    </div>
+      <!-- Edit an item form -->
+      <div class="container">
+        <form id="update-item">
+          <fieldset>
+            <legend>Edit an Item</legend>
+            <div class="col-2">
+              <input type="text" name="item[id]" placeholder="Item Id" id="update-id" class="forms">
+              <input type="text" name="item[upc]" placeholder="UPC" id="update-upc" class="forms">
+              <input type="text" name="item[description]" placeholder="Description" id="update-description" class="forms">
+              <input type="text" name="item[price]" placeholder="Price" id="update-price" class="forms">
+              <input type="text" name="item[cost]" placeholder="Cost" id="update-cost" class="forms">
+              <input type="text" name="item[quantity]" placeholder="Quantity" id="update-quantity" class="forms">
+              <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="update-ads" class="forms">
+              <button type="submit" value="Go" class="buttton">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+          <!-- Enter an item form -->
+      <!-- <form id="create-item">
+        <fieldset>
+          <legend>Add an Item</legend>
+          <input type="text" name="upc" placeholder="UPC" id="create-upc" class="forms">
+          <input type="text" name="description" placeholder="Description" id="create-description" class="forms">
+          <input type="text" name="price" placeholder="Price" id="create-price" class="forms">
+          <input type="text" name="cost" placeholder="Cost" id="create-cost" class="forms">
+          <input type="text" name="quantity" placeholder="Quantity" id="create-quantity" class="forms">
+          <input type="text" name="ads" placeholder="Average Daily Sales" id="create-ads" class="forms">
+          <input type="submit" value="Go" class="buttons">
+        </fieldset>
+      </form> -->
+      <div class="container">
+        <form id="create-item">
+         <fieldset>
+           <legend>Add an Item</legend>
+           <div class="col-2">
+             <input type="text" name="item[upc]" placeholder="UPC" id="create-upc" class="forms">
+             <input type="text" name="item[description]" placeholder="Description" id="create-description" class="forms">
+             <input type="text" name="item[price]" placeholder="Price" id="create-price" class="forms">
+             <input type="text" name="item[cost]" placeholder="Cost" id="create-cost" class="forms">
+             <input type="text" name="item[quantity]" placeholder="Quantity" id="create-quantity" class="forms">
+             <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="create-ads" class="forms">
+             <button type="submit" value="Submit item">Submit Item</button>
+           </div>
+         </fieldset>
+        </form>
+      </div>
+      <div class="results-message" id="resultsMessage"></div>
+    </body>
+</html>

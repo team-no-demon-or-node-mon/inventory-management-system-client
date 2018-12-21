@@ -24,6 +24,16 @@ const indexItems = () => {
   })
 }
 
+const indexItemsTwo = () => {
+  return $.ajax({
+    url: config.apiUrl + '/items',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createItem = data => {
   return $.ajax({
     url: config.apiUrl + '/items',
@@ -62,5 +72,6 @@ module.exports = {
   indexItems,
   createItem,
   deleteItem,
-  updateItem
+  updateItem,
+  indexItemsTwo
 }

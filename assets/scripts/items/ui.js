@@ -1,3 +1,7 @@
+const showItemsTemplate = require('../templates/item-listing.handlebars')
+const showOneItemTemplate = require('../templates/single-item-listing.handlebars')
+const api = require('./api.js')
+
 const resetForms = () => {
   $('#show-item')[0].reset()
   $('#index-items')[0].reset()
@@ -9,86 +13,86 @@ const resetForms = () => {
 
 const showSuccess = (response) => {
   resetForms()
-  console.log(response)
-  $('#resultsMessage').text('Item:')
-  const itemHTML = (`
-    <h6>ID: ${response.item._id}</h6>
-    <p>UPC: ${response.item.upc}</p>
-    <p>Description: ${response.item.description}</p>
-    <p>Price: ${response.item.price}</p>
-    <p>Cost: ${response.item.cost}</p>
-    <p>Quantity: ${response.item.quantity}</p>
-    <p>Average Daily Sales: ${response.item.ads}</p>
-    `)
-  $('#results').text(itemHTML)
+  const showItemsHtml = showOneItemTemplate({ item: response })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('Item:')
+  $('#auth-message').text('')
 }
 
 const showFailure = (data) => {
-  console.error('did not run', data)
   resetForms()
-  $('#results').text('Show Inventory Failed')
+  $('#results-message').text('Show Inventory Failed')
+  $('#auth-message').text('')
 }
 
 const indexSuccess = (response) => {
   resetForms()
-  console.log(response)
-  $('#resultsMessage').text('Inventory:')
-  response.items.forEach(items => {
-    const itemHTML = (`
-      <h6>ID: ${items._id}</h6>
-      <p>UPC: ${items.upc}</p>
-      <p>Description: ${items.description}</p>
-      <p>Price: ${items.price}</p>
-      <p>Cost: ${items.cost}</p>
-      <p>Quantity: ${items.quantity}</p>
-      <p>Average Daily Sales: ${items.ads}</p>
-      `)
-    $('#results').append(itemHTML)
-  })
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('')
+  $('#auth-message').text('')
+}
+
+const indexSuccess1 = (response) => {
+  resetForms()
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#auth-message').text('')
 }
 
 const indexFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Could Not Retrieve Inventory')
+  $('#results-message').text('Could Not Retrieve Inventory')
+  $('#auth-message').text('')
 }
 
 const deleteSuccess = (data) => {
   resetForms()
-  $('#resultsMessage').text('Item deleted successfully')
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('success')
-  $('.forms').val('')
-  console.log('deleteItemSuccess ran. Data is :', data)
+  $('#auth-message').text('')
+  $('#results-message').text('Item Deleted Successfully')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
-const deleteFailure = error => {
+const deleteFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Error deleting item')
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('failure')
+  $('#results-message').text('Error deleting item')
   $('.forms').val('')
-  console.error('deleteItemFailure ran. Error is :', error)
+  $('#auth-message').text('')
 }
 
-const updateSuccess = () => {
+const updateSuccess = (data) => {
   resetForms()
-  $('#resultsMessage').text('Item Updated')
+  const showItemsHtml = showOneItemTemplate({ item: data })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('Item successfully updated')
+  $('#auth-message').text('')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
 const updateFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Could Not Update Item')
+  $('#results-message').text('Could Not Update Item')
+  $('#auth-message').text('')
 }
 
 const createSuccess = (data) => {
-  console.log(data)
-  $('#resultsMessage').text('Item Created')
   resetForms()
+  const showItemsHtml = showOneItemTemplate({ item: data })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('Item Successfully Created')
+  $('#auth-message').text('')
 }
 
 const createFailure = (data) => {
-  console.error('create did not run. data is:', data)
-  $('#resultsMessage').text('Create Item Failed')
+  $('#results-message').text('Create Item Failed')
+  $('#auth-message').text('')
   resetForms()
 }
 
@@ -102,5 +106,6 @@ module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  indexSuccess1
 }
