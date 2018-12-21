@@ -13,90 +13,86 @@ const resetForms = () => {
 
 const showSuccess = (response) => {
   resetForms()
-  console.log(response)
   const showItemsHtml = showOneItemTemplate({ item: response })
-  $('#results').text(showItemsHtml)
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('Item:')
+  $('#auth-message').text('')
 }
 
 const showFailure = (data) => {
-  console.error('did not run', data)
   resetForms()
-  $('#results').text('Show Inventory Failed')
+  $('#results-message').text('Show Inventory Failed')
+  $('#auth-message').text('')
 }
 
 const indexSuccess = (response) => {
   resetForms()
-  console.log(response)
   const showItemsHtml = showItemsTemplate({ items: response.items })
   $('#results').empty()
-  // prevent data adding onto itself with each "show books" click
   $('#results').append(showItemsHtml)
+  $('#results-message').text('')
+  $('#auth-message').text('')
 }
-//
-// const clearBooks = () => {
-//   $('.content').empty()
-// }
-//
-// const failure = (error) => {
-//   console.error(error)
-// }
+
+const indexSuccess1 = (response) => {
+  resetForms()
+  const showItemsHtml = showItemsTemplate({ items: response.items })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#auth-message').text('')
+}
 
 const indexFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Could Not Retrieve Inventory')
+  $('#results-message').text('Could Not Retrieve Inventory')
+  $('#auth-message').text('')
 }
 
 const deleteSuccess = (data) => {
   resetForms()
-  $('#resultsMessage').text('Item deleted successfully')
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('success')
-  $('.forms').val('')
-  console.log('deleteItemSuccess ran. Data is :', data)
-  // after item is deleted, show list of items with ommission
-  api.indexItems()
-    .then(indexSuccess)
+  $('#auth-message').text('')
+  $('#results-message').text('Item Deleted Successfully')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
-const deleteFailure = error => {
+const deleteFailure = () => {
   resetForms()
   $('#resultsMessage').text('Error deleting item')
-  $('#authmessage').removeClass()
-  $('#authmessage').addClass('failure')
   $('.forms').val('')
-  console.error('deleteItemFailure ran. Error is :', error)
+  $('#auth-message').text('')
 }
 
-const updateSuccess = (response) => {
+const updateSuccess = (data) => {
   resetForms()
-  const showItemsHtml = showOneItemTemplate({ item: response })
-  console.log(response)
+  const showItemsHtml = showOneItemTemplate({ item: data })
   $('#results').empty()
   $('#results').append(showItemsHtml)
+  $('#results-message').text('Item successfully updated')
+  $('#auth-message').text('')
+  api.indexItemsTwo()
+    .then(indexSuccess1)
 }
 
 const updateFailure = () => {
   resetForms()
-  $('#resultsMessage').text('Could Not Update Item')
+  $('#results-message').text('Could Not Update Item')
+  $('#auth-message').text('')
 }
 
 const createSuccess = (data) => {
-  console.log(data)
-  const showItemsHtml = showItemsTemplate({ items: data.items })
-  $('#results').empty()
-  // prevent data adding onto itself with each "show books" click
-  $('#results').append(showItemsHtml)
-  $('#resultsMessage').text('Item Created')
-
   resetForms()
-  // after item is added, show list of items with added item
-  api.indexItems()
-    .then(indexSuccess)
+  const showItemsHtml = showOneItemTemplate({ item: data })
+  $('#results').empty()
+  $('#results').append(showItemsHtml)
+  $('#results-message').text('Item Successfully Created')
+  $('#auth-message').text('')
 }
 
 const createFailure = (data) => {
-  console.error('create did not run. data is:', data)
-  $('#resultsMessage').text('Create Item Failed')
+  $('#results-message').text('Create Item Failed')
+  $('#auth-message').text('')
   resetForms()
 }
 
@@ -110,5 +106,6 @@ module.exports = {
   createSuccess,
   createFailure,
   updateSuccess,
-  updateFailure
+  updateFailure,
+  indexSuccess1
 }
