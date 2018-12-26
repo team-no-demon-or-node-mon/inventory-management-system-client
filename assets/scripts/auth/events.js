@@ -36,13 +36,10 @@ const onSignOut = event => {
 }
 
 const onRegClick = () => {
-  // event.preventDefault()
   $('#login-box').hide()
   $('#signup-box').show()
   $('#register').hide()
   $('#login-top').show()
-  // .then(ui.)
-  // .catch(ui.)
 }
 
 const onLoginClick = () => {

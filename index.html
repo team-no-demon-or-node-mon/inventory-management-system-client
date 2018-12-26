@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>IMS</title>
+      <title>Nozama</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,7 +12,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 
-      <img src="./nozama4.png" alt="Nozama Logo" style="width:610px;height:340px;" class="nozama">
+      <img src="https://i.imgur.com/g0D0zVS.png" alt="Nozama Logo" style="width:610px;height:340px;" class="nozama">
 
       </head>
 
@@ -20,6 +20,8 @@
 
       <div class = "btn-group">
       <button id="sign-out" class="btn btn-default">Sign Out</button>
+
+
       <form id="index-items">
         <fieldset>
           <button type="submit" value="Show All Inventory" class="btn btn-default">Show All Inventory</button>
@@ -87,7 +89,7 @@
 
   <button type="button" class="button1" id="login-top">Login</button>
 
-  <!-- <button type="button">Click Me!</button> -->
+
 
 
 
@@ -118,16 +120,34 @@
 
 
 
-      <!-- end -->
+
 
       <!-- sign out button>
       <form>
         <button type="button" id="sign-out" class="buttons">Sign Out</button>
+      </form> -->
+
+
+
+
+
+
+
+      <form id="change-password" class="main-forms">
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old password" class="forms">
+          <input type="password" name="passwords[new]" placeholder="New password" class="forms">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
+          <button type="submit" value="Change password" class="btn btn-default btn-sm">Change Password</button>
+        </fieldset>
       </form>
+      <br>
+      <br>
 
 
-      <! create and inventory item -->
-      <form id="create-item">
+
+      <form id="create-item" class="main-forms">
        <fieldset>
          <legend>Add an Item</legend>
          <input type="text" name="item[upc]" placeholder="UPC" id="create-upc" class="forms">
@@ -143,7 +163,7 @@
      <br>
 
       <!-- Edit an item form -->
-      <form id="update-item">
+      <form id="update-item" class="main-forms">
         <fieldset>
           <legend>Edit an Item</legend>
           <input type="text" name="item[id]" placeholder="Item Id" id="update-id" class="forms">
@@ -159,7 +179,7 @@
       <br>
       <br>
       <!-- see 1 inventory item -->
-      <form id="show-item">
+      <form id="show-item" class="main-forms">
         <fieldset>
           <legend>See an Inventory Item</legend>
           <input type="text" name="id" placeholder="Item Id" id="show-id" class="forms">
@@ -178,7 +198,7 @@
       <br><br> -->
 
       <!-- delete an inventory item -->
-      <form id="delete-item">
+      <form id="delete-item" class="main-forms">
         <fieldset>
           <legend>Remove an Item from Inventory</legend>
           <input type="text" name="item[id]" placeholder="Item Id" id="delete-id" class="forms">
