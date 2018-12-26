@@ -1,3 +1,5 @@
+Team No demon or Node mon
+
 The app is an inventory management system meant to keep track of store items by
 allowing the user to show the entire inventory, find a specific item, delete an
 item, create an item, or update an item.

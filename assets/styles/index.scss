@@ -28,8 +28,16 @@
   display: block;
 }
 
+.forms {
+  background: none;
+}
+
+.main-forms input {
+  color: white;
+}
+
 body {
-  background-image: url('https://media.giphy.com/media/1uRnBBIqbuBXy/giphy.gif');
+  background-image: url('https://media0.giphy.com/media/OJUuHrNYGniiQ/giphy.gif?cid=3640f6095c1fddb7706967525931244b');
   background-size: cover;
 }
 
@@ -50,7 +58,7 @@ body {
 
 //start
 
-body{
+body {
   margin: 0;
   padding: 0;
   // font-family: sans-serif;
@@ -58,16 +66,16 @@ body{
   // background-size: cover;
 }
 
-.login-box{
+.login-box {
   width: 260px;
   position: absolute;
-  top: 62%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%,-50%);
   color: white;
 }
 
-.textbox{
+.textbox {
   width: 100%;
   overflow: hidden;
   font-size: 20px;
@@ -75,12 +83,14 @@ body{
   margin: 8px 0;
   border-bottom: 1px solid #e08700;
 }
-.textbox i{
+
+.textbox i {
   width: 26px;
   float: left;
   text-align: center;
 }
-.textbox input{
+
+.textbox input {
   border: none;
   outline: none;
   background: none;
@@ -94,9 +104,10 @@ body{
   width: 100%;
   background: none;
   border: 2px solid #e08700;
-  color: white;
+  color: #e08700;
   padding: 5px;
   font-size: 20px;
+  font-weight: normal;
   cursor: pointer;
   margin: 12px 0;
 }
@@ -104,6 +115,6 @@ body{
 
 
 // gifs
-// https://media.giphy.com/media/aRZ4vTsHnyW6A/giphy.gif
-// https://media.giphy.com/media/3o7buijTqhjxjbEqjK/source.gif
-// https://media.giphy.com/media/1uRnBBIqbuBXy/giphy.gif
+// (winter theme) https://media0.giphy.com/media/OJUuHrNYGniiQ/giphy.gif?cid=3640f6095c1fddb7706967525931244b
+// (space stars theme) https://media.giphy.com/media/aRZ4vTsHnyW6A/giphy.gif
+// (original dystopian) https://media.giphy.com/media/1uRnBBIqbuBXy/giphy.gif
