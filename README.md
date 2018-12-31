@@ -11,6 +11,7 @@ https://github.com/ceconley/inventory-management-system-express-api
 
 Deployed heroku: https://pure-headland-95535.herokuapp.com/
 Deployed gh-pages: https://ceconley.github.io/inventory-management-system-client/
+Wireframe: https://i.imgur.com/NnhgulF.jpg
 
 Technologies used: express, mongoDB, mongoose, handlebars, bootstrap, jQuery,
 ajax, javascript, html, css.
