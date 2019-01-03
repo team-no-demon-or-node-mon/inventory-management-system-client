@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Nozama</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <img src="https://i.imgur.com/g0D0zVS.png" alt="Nozama Logo" style="width:610px;height:340px;" class="nozama">
+
+      </head>
+
+      <body class="container-fluid">
+
+      <div class = "btn-group">
+      <button id="sign-out" class="btn btn-default">Sign Out</button>
+
+
+      <form id="index-items">
+        <fieldset>
+          <button type="submit" value="Show All Inventory" class="btn btn-default">Show All Inventory</button>
+        </fieldset>
+      </form>
+    </div>
+    <br>
+    <br>
+    <div id="auth-message">
+
+    </div>
+
+
+
+<!--sign-in-->
+
+<div class="login-box" id="login-box">
+  <form id="sign-in">
+    <fieldset>
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+  </div>
+
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+  </div>
+
+  <input type="submit" class="button" value="Login">
+  </fieldset>
+</form>
+</div>
+
+
+<!-- sign-up -->
+<div class="login-box" id="signup-box">
+  <form id="sign-up">
+    <fieldset>
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+  </div>
+
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+  </div>
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
+  </div>
+
+  <input type="submit" class="button" value="Sign Up">
+  </fieldset>
+</form>
+</div>
+
+
+
+  <button type="button" class="button1" id="register">Register</button>
+
+  <button type="button" class="button1" id="login-top">Login</button>
+
+
+
+
+
+
+
+
+
+    <!-- <form id="sign-in">
+      <fieldset>
+        <legend>Sign In</legend>
+        <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+        <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+        <button type="submit" value="Sign In" class="buttons">Sign In</button>
+      </fieldset>
+    </form>
+
+
+      <form class="sign-up" id="sign-up">
+        <fieldset>
+          <legend>Sign Up</legend>
+          <input type="text" name="credentials[email]" placeholder="Email" class="forms">
+          <input type="password" name="credentials[password]" placeholder="Password" class="forms">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="forms">
+          <button type="submit" value="Sign Up" class="buttons">Sign Up</button>
+        </fieldset>
+      </form>
+      <br> -->
+
+
+
+
+
+      <!-- sign out button>
+      <form>
+        <button type="button" id="sign-out" class="buttons">Sign Out</button>
+      </form> -->
+
+
+
+
+
+
+
+      <form id="change-password" class="main-forms">
+        <fieldset>
+          <legend>Change Password</legend>
+          <input type="password" name="passwords[old]" placeholder="Old password" class="forms">
+          <input type="password" name="passwords[new]" placeholder="New password" class="forms">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm New Password" class="forms">
+          <button type="submit" value="Change password" class="btn btn-default btn-sm">Change Password</button>
+        </fieldset>
+      </form>
+      <br>
+      <br>
+
+
+
+      <form id="create-item" class="main-forms">
+       <fieldset>
+         <legend>Add an Item</legend>
+         <input type="text" name="item[upc]" placeholder="UPC" id="create-upc" class="forms">
+         <input type="text" name="item[description]" placeholder="Description" id="create-description" class="forms">
+         <input type="text" name="item[price]" placeholder="Price" id="create-price" class="forms"><br>
+         <input type="text" name="item[cost]" placeholder="Cost" id="create-cost" class="forms">
+         <input type="text" name="item[quantity]" placeholder="Quantity" id="create-quantity" class="forms">
+         <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="create-ads" class="forms"><br>
+         <button type="submit" value="Submit item" class="btn btn-default btn-sm">Submit Item</button>
+       </fieldset>
+     </form>
+     <br>
+     <br>
+
+      <!-- Edit an item form -->
+      <form id="update-item" class="main-forms">
+        <fieldset>
+          <legend>Edit an Item</legend>
+          <input type="text" name="item[id]" placeholder="Item Id" id="update-id" class="forms">
+          <input type="text" name="item[upc]" placeholder="UPC" id="update-upc" class="forms">
+          <input type="text" name="item[description]" placeholder="Description" id="update-description" class="forms"><br>
+          <input type="text" name="item[price]" placeholder="Price" id="update-price" class="forms">
+          <input type="text" name="item[cost]" placeholder="Cost" id="update-cost" class="forms">
+          <input type="text" name="item[quantity]" placeholder="Quantity" id="update-quantity" class="forms"><br>
+          <input type="text" name="item[ads]" placeholder="Average Daily Sales" id="update-ads" class="forms">
+          <button type="submit" value="Go" class="btn btn-default btn-sm">Submit</button>
+        </fieldset>
+      </form>
+      <br>
+      <br>
+      <!-- see 1 inventory item -->
+      <form id="show-item" class="main-forms">
+        <fieldset>
+          <legend>See an Inventory Item</legend>
+          <input type="text" name="id" placeholder="Item Id" id="show-id" class="forms">
+          <button type="submit" value="Go" class="btn btn-default btn-sm">Go</button>
+        </fieldset>
+      </form>
+      <br>
+      <br>
+      <!-- see all inventory items -->
+      <!-- <form id="index-items">
+        <fieldset>
+          <legend>See all Inventory Items</legend>
+          <button type="submit" value="Show All Inventory" class="buttons">Show All Inventory</button>
+        </fieldset>
+      </form>
+      <br><br> -->
+
+      <!-- delete an inventory item -->
+      <form id="delete-item" class="main-forms">
+        <fieldset>
+          <legend>Remove an Item from Inventory</legend>
+          <input type="text" name="item[id]" placeholder="Item Id" id="delete-id" class="forms">
+          <button type="submit" value='Delete' class="btn btn-default btn-sm">Submit</button>
+        </fieldset>
+      </form>
+      <br><br>
+
+
+      <div class="results-message" id="results-message">
+      </div>
+
+      <div id="results">
+      </div>
+
+    </body>
+</html>
