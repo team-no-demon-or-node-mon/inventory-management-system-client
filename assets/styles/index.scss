@@ -22,8 +22,6 @@
   margin-right: auto;
 }
 
-
-
 .sign-up {
   display: block;
 }
@@ -37,8 +35,10 @@
 }
 
 body {
-  background-image: url('https://media0.giphy.com/media/OJUuHrNYGniiQ/giphy.gif?cid=3640f6095c1fddb7706967525931244b');
+  background-image: url('public/img/warehouse.jpg');
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 .button1 {
@@ -56,22 +56,12 @@ body {
   margin: 20px 20px;
 }
 
-//start
-
-body {
-  margin: 0;
-  padding: 0;
-  // font-family: sans-serif;
-  // background: url(bg.jpg) no-repeat;
-  // background-size: cover;
-}
-
 .login-box {
   width: 260px;
   position: absolute;
   top: 55%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   color: white;
 }
 
@@ -100,6 +90,7 @@ body {
   float: left;
   margin: 0 10px;
 }
+
 .button {
   width: 100%;
   background: none;
@@ -111,8 +102,6 @@ body {
   cursor: pointer;
   margin: 12px 0;
 }
-
-
 
 // gifs
 // (winter theme) https://media0.giphy.com/media/OJUuHrNYGniiQ/giphy.gif?cid=3640f6095c1fddb7706967525931244b

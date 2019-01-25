@@ -1,44 +1,59 @@
-Team No demon or Node mon
+# Nozama Inventory Management System
+##### By Team No demon or Node mon
 
-The app is an inventory management system meant to keep track of store items by
+The app is an inventory management system meant to keep track of items by
 allowing the user to show the entire inventory, find a specific item, delete an
 item, create an item, or update an item.
 
 Users must first sign up and sign in before gaining access to inventory tools.
 
-Link to back-end repo:
-https://github.com/ceconley/inventory-management-system-express-api
+### Link to back-end repo
 
-Deployed heroku: https://pure-headland-95535.herokuapp.com/
-Deployed gh-pages: https://ceconley.github.io/inventory-management-system-client/
-Wireframe: https://i.imgur.com/NnhgulF.jpg
+[https://github.com/ceconley/inventory-management-system-express-api](https://github.com/ceconley/inventory-management-system-express-api)
 
-Technologies used: express, mongoDB, mongoose, handlebars, bootstrap, jQuery,
-ajax, javascript, html, css.
+### Link to deployed sites
 
-Problems to be fixed:
-- formatting the table so currency shows propery
+##### Deployed heroku: 
+[https://pure-headland-95535.herokuapp.com](https://pure-headland-95535.herokuapp.com)
+##### Deployed gh-pages: 
+[https://ceconley.github.io/inventory-management-system-client](https://ceconley.github.io/inventory-management-system-client)
+Wireframe: [Wireframe Image](https://i.imgur.com/NnhgulF.jpg)
 
-Version 2.0:
+### Technologies used
+* express 
+* mongoDB
+* mongoose
+* handlebars
+* bootstrap
+* jQuery
+* ajax
+* javascript
+* html
+* css
+
+### Problems to be fixed
+formatting the table so currency shows propery
+
+### Version 2.0
 - upcs require 10 digits
 - adding bar codes
 - authentication for admins
 
-User stories:
-As a user I want to be able to sign up with an account.
-I want to be able to sign in with a password.
-Once signed in, I want to be able to change my password.
-I want to be able to sign out.
-Only authenticated users will be able to work within the inventory database.
-I want to be able to create an inventory item.
-I want to be able to view 1 inventory item.
-I want to be able to view all inventory.
-I want to be able to view attributes of items based on price, quantity and other soon to be determined qualities of our products.
-I want to be able to sort products by price, quantity, and other soon to be determined qualities of our products.
-I want to be able to delete an item from inventory.
-I want each of my items to have a unique identifier which will create a link between the manufacturer’s database and my own inventory management system.
+### User stories
+*	As a user I want to be able to sign up with an account.
+*	I want to be able to sign in with a password.
+*	Once signed in, I want to be able to change my password.
+*	I want to be able to sign out.
+*	Only authenticated users will be able to work within the inventory database.
+*	I want to be able to create an inventory item.
+*	I want to be able to view 1 inventory item.
+*	I want to be able to view all inventory.
+*	I want to be able to view attributes of items based on price, quantity and other soon to be determined qualities of our products.
+*	I want to be able to sort products by price, quantity, and other soon to be determined qualities of our products.
+*	I want to be able to delete an item from inventory.
+*	I want each of my items to have a unique identifier which will create a link between the manufacturer’s database and my own inventory management system.
 
-Planning, Process, and Problem Solving:
+### Planning, Process, and Problem Solving
 
 For this project it was very important that we were all on the same page understanding the code we'd be writing. Two of the group members had a much more comfortable understanding of api's and form data implementation. From the beginning, we wanted to make sure that no one was left behind so the first steps were to gain a clear understanding of the requirements, our tables, and the minimal viable product. It was pivotal to keep these in sight at all times and remained our guiding principal throughout.
 
