@@ -9,7 +9,7 @@ Users must first sign up and sign in before gaining access to inventory tools.
 
 ### Link to back-end repo
 
-[https://github.com/ceconley/inventory-management-system-express-api](https://github.com/ceconley/inventory-management-system-express-api)
+[https://github.com/team-no-demon-or-node-mon/inventory-management-system-express-api](https://github.com/team-no-demon-or-node-mon/inventory-management-system-express-api)
 
 ### Link to deployed sites
 
@@ -17,6 +17,7 @@ Users must first sign up and sign in before gaining access to inventory tools.
 [https://pure-headland-95535.herokuapp.com](https://pure-headland-95535.herokuapp.com)
 ##### Deployed gh-pages: 
 [https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/](https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/)
+
 Wireframe: [Wireframe Image](https://i.imgur.com/NnhgulF.jpg)
 
 ### Technologies used
