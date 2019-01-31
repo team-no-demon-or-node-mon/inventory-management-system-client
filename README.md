@@ -18,7 +18,7 @@ Users must first sign up and sign in before gaining access to inventory tools.
 ##### Deployed gh-pages: 
 [https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/](https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/)
 
-Wireframe: [Wireframe Image](https://i.imgur.com/NnhgulF.jpg)
+Wireframe: [Wireframe Image](https://github.com/team-no-demon-or-node-mon/inventory-management-system-client/blob/master/public/wireframe.jpg)
 
 ### Technologies used
 * express 
