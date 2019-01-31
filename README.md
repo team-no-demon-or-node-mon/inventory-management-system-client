@@ -16,7 +16,7 @@ Users must first sign up and sign in before gaining access to inventory tools.
 ##### Deployed heroku: 
 [https://pure-headland-95535.herokuapp.com](https://pure-headland-95535.herokuapp.com)
 ##### Deployed gh-pages: 
-[https://ceconley.github.io/inventory-management-system-client](https://ceconley.github.io/inventory-management-system-client)
+[https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/](https://team-no-demon-or-node-mon.github.io/inventory-management-system-client/)
 Wireframe: [Wireframe Image](https://i.imgur.com/NnhgulF.jpg)
 
 ### Technologies used
